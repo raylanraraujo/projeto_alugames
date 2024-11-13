@@ -1,3 +1,9 @@
+let alugados = 0;
+
+function contarAlugados() {
+    console.log(`Total de jogos alugados: ${alugados}`);
+}
+
 function alterarStatus(id) {
     let gameClicado = document.getElementById(`game-${id}`); //recupera o elemento pelo ID onde na chamada de função é passado apenas o número
     let imagem = gameClicado.querySelector('.dashboard__item__img'); //recupera o elemento div (imagem) do jogo clicado
@@ -13,10 +19,21 @@ function alterarStatus(id) {
             imagem.classList.remove('dashboard__item__img--rented');
             botao.classList.remove('dashboard__item__button--return');
             botao.innerHTML = 'Alugar'
+            alugados--
         }
     } else {    //para os jogos que estavam disponíveis
         imagem.classList.add('dashboard__item__img--rented');
         botao.classList.add('dashboard__item__button--return');
         botao.innerHTML = 'Devolver'
+        alugados++
     }
+
+    contarAlugados();
 }
+
+// Inicializa a contagem considerando que os jogos já começam alugados
+document.addEventListener('DOMContentLoaded', function() {
+    alugados = document.querySelectorAll('.dashboard__item__img--rented').length;
+    contarAlugados();
+});
+
