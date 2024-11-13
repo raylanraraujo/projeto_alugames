@@ -8,7 +8,7 @@ function alterarStatus(id) {
     //mas é possível colocar tudo junto
     
     if (imagem.classList.contains('dashboard__item__img--rented')) {  //para os jogos que estavam alugados
-        let confirmarDevolucao = confirm('Deseja realmente devolver?');
+        let confirmarDevolucao = confirm('Deseja realmente devolver?'); //criar confirmação para devolução
         if (confirmarDevolucao == true) {
             imagem.classList.remove('dashboard__item__img--rented');
             botao.classList.remove('dashboard__item__button--return');
