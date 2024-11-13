@@ -8,9 +8,12 @@ function alterarStatus(id) {
     //mas é possível colocar tudo junto
     
     if (imagem.classList.contains('dashboard__item__img--rented')) {  //para os jogos que estavam alugados
-        imagem.classList.remove('dashboard__item__img--rented');
-        botao.classList.remove('dashboard__item__button--return');
-        botao.innerHTML = 'Alugar'
+        let confirmarDevolucao = confirm('Deseja realmente devolver?');
+        if (confirmarDevolucao == true) {
+            imagem.classList.remove('dashboard__item__img--rented');
+            botao.classList.remove('dashboard__item__button--return');
+            botao.innerHTML = 'Alugar'
+        }
     } else {    //para os jogos que estavam disponíveis
         imagem.classList.add('dashboard__item__img--rented');
         botao.classList.add('dashboard__item__button--return');
